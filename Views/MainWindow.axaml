@@ -11,16 +11,34 @@
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
+
     <Grid>
+       <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" MinWidth="200" MaxWidth="300"/>
+            <ColumnDefinition Width="4"/>
+            <ColumnDefinition Width="auto"/>
+       </Grid.ColumnDefinitions>
         <TreeView Items="{Binding items}" 
-	              Width="400" Height="480" 
-	              HorizontalAlignment="Left">
+	              HorizontalAlignment="Left"
+                  MaxWidth="300"
+                  Grid.Column="0">
 	        <TreeView.ItemTemplate>
 		        <TreeDataTemplate ItemsSource="{Binding folders}">
 			        <TextBlock Text="{Binding Name}"/>
 		        </TreeDataTemplate>
 	        </TreeView.ItemTemplate>
         </TreeView>
+        <GridSplitter Grid.Column="1" Background="Gray" ResizeDirection="Columns"/>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" MinHeight="200" MaxHeight="300"/>
+                <RowDefinition Height="4"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="aaaa"/>
+            <GridSplitter Grid.Row="1" Background="Gray" ResizeDirection="Rows"/>
+            <TextBlock Grid.Row="2" Text="bbbb"/>
+        </Grid>
     </Grid>
 
 </Window>
